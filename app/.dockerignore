@@ -1,0 +1,8 @@
+# Ignorar el virtual enviroment
+./env
+
+# Ignorar la carpeta de imágens
+./imgs
+
+# Ignorar las imágens
+./*.png
