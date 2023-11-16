@@ -1,15 +1,17 @@
 FROM python:latest
 
-RUN mkdir /app
+# Crea el directorio de la aplicación
+RUN ["mkdir", "/app"]
 
+# Establece el directorio de trabajo
 WORKDIR /app
 
-CMD "pip install --upgrade pip"
+# Copia el script y los archivos necesarios
+COPY [".", "."]
 
-CMD "pip install -r requirements.txt"
+# Instala las dependencias desde requirements.txt
+RUN ["pip", "install", "--upgrade", "pip"]
+RUN ["pip", "install", "-r", "requirements.txt"]
 
-COPY . /app/
-
-CMD "mkdir /app/imgs"
-
-CMD bash -c "while true; do sleep 1; done"
+# Comando predeterminado para ejecutar cuando se inicie el contenedor
+CMD ["/bin/bash", "./loop.sh"]
