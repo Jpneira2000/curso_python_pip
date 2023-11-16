@@ -4,4 +4,4 @@ services:
   app-csv:
     build: .
     volumes:
-    - .:/app
+      - .:/app
